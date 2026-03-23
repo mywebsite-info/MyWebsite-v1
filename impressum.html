@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Impressum und Datenschutzerklärung von MyWebsite." />
+  <meta name="robots" content="noindex, follow" />
+  <title>Impressum & Datenschutz — MyWebsite</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=2.0" />
+</head>
+<body>
+
+  <!-- ── Ambient Background (Liquid Aurora) ────────────────── -->
+  <div class="ambient-layer" aria-hidden="true">
+    <div class="ambient-shape ambient-shape-1"></div>
+    <div class="ambient-shape ambient-shape-2"></div>
+    <div class="ambient-shape ambient-shape-3"></div>
+  </div>
+  
+  <!-- Mouse follower spotlight -->
+  <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" aria-label="Hauptnavigation">
+    <div class="container">
+      <a class="nav-logo" href="index.html" aria-label="MyWebsite – Startseite">
+        My<span>Website</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <li><a href="index.html#features">Leistungen</a></li>
+        <li><a href="index.html#examples">Projekte</a></li>
+        <li><a href="index.html#contact">Preise</a></li>
+        <li><a href="about.html">Über uns</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="index.html#contact" id="nav-cta">Starten</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html#features">Leistungen</a>
+    <a href="index.html#examples">Projekte</a>
+    <a href="index.html#contact">Preise</a>
+    <a href="about.html">Über uns</a>
+    <a class="btn btn-primary" href="index.html#contact" style="margin-top:24px;">Starten</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       LEGAL CONTENT
+       ══════════════════════════════════════════════════════════ -->
+  <main class="section legal-section" style="padding-top: 160px; min-height: 80vh;">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Rechtliches</div>
+        <h1 class="section-title">Impressum & <span>Datenschutz</span></h1>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-1 legal-card" style="padding: 40px; margin-top: 40px; max-width: 900px;">
+        
+        <div class="legal-block">
+          <h2>Impressum</h2>
+          <p><strong>Verantwortlicher:</strong></p>
+          <p>Anton Schirmer</p>
+          <p>E-Mail: <a href="mailto:mywebsite.kontakt@gmail.com" class="purple">mywebsite.kontakt@gmail.com</a></p>
+        </div>
+
+        <div class="legal-block">
+          <h2>Datenschutzerklärung</h2>
+          
+          <h3 style="font-size: 1.1rem; margin: 24px 0 12px; color: var(--tertiary);">Datenerfassung</h3>
+          <p>
+            Diese Website erhebt keine personenbezogenen Daten. Es werden keine Cookies gesetzt und kein Tracking verwendet.
+            Beim Besuch der Website können technische Daten (IP-Adresse, Zeitpunkt des Zugriffs) automatisch im Server-Log gespeichert werden. 
+            Dies liegt außerhalb meines Einflussbereichs und dient ausschließlich dem Betrieb des Servers.
+          </p>
+
+          <h3 style="font-size: 1.1rem; margin: 24px 0 12px; color: var(--tertiary);">Kontakt</h3>
+          <p>
+            Wenn du mich per E-Mail kontaktierst, werden deine Angaben nur zur Bearbeitung deiner Anfrage genutzt und nicht weitergegeben.
+          </p>
+
+          <h3 style="font-size: 1.1rem; margin: 24px 0 12px; color: var(--tertiary);">Deine Rechte</h3>
+          <p>
+            Du hast das Recht auf Auskunft, Berichtigung und Löschung deiner Daten (Art. 15–17 DSGVO). 
+            Bei Fragen wende dich bitte an: <a href="mailto:mywebsite.kontakt@gmail.com" class="purple">mywebsite.kontakt@gmail.com</a>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="reveal reveal-delay-2" style="margin-top: 40px;">
+        <a href="index.html" class="btn btn-secondary">&larr; Zurück zur Startseite</a>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo" style="margin-bottom: 8px; opacity: 0.9;">My<span>Website</span></div>
+        <p class="footer-center" style="margin-bottom: 12px;">&copy; 2026 MyWebsite. Alle Rechte vorbehalten.</p>
+        <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: center;">
+          <a class="footer-email" href="mailto:mywebsite.kontakt@gmail.com" aria-label="E-Mail senden">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            mywebsite.kontakt@gmail.com
+          </a>
+          <a href="impressum.html" class="footer-legal-link">Impressum & Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Main Script -->
+  <script src="js/main.js?v=2.0"></script>
+
+</body>
+</html>

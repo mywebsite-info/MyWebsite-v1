@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website-Pakete und transparente Preise von MyWebsite." />
+  <title>Preise — MyWebsite</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css?v=2.0" />
+</head>
+<body class="subpage pricing-page">
+  <div class="ambient-layer" aria-hidden="true">
+    <div class="ambient-shape ambient-shape-1"></div>
+    <div class="ambient-shape ambient-shape-2"></div>
+    <div class="ambient-shape ambient-shape-3"></div>
+  </div>
+  <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar" aria-label="Hauptnavigation">
+    <div class="container">
+      <a class="nav-logo" href="index.html" aria-label="MyWebsite – Startseite">
+        My<span>Website</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <li><a href="index.html#examples">Projekte</a></li>
+        <li><a href="index.html#contact">Kontakt</a></li>
+        <li><a href="preise.html" style="color:var(--primary-light)">Preise</a></li>
+        <li><a href="about.html">Über uns</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="index.html#contact">Starten</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html#examples">Projekte</a>
+    <a href="index.html#contact">Kontakt</a>
+    <a href="preise.html">Preise</a>
+    <a href="about.html">Über uns</a>
+    <a class="btn btn-primary" href="index.html#contact" style="margin-top:24px;">Starten</a>
+  </div>
+
+  <main class="section pricing-main">
+    <div class="container" style="padding-top: 120px;">
+      <div class="reveal pricing-heading">
+        <div class="section-label">Pakete & Preise</div>
+        <h1 class="section-title">Faire <span>Preise</span> ohne Überraschungen</h1>
+        <p class="section-subtitle">
+          Wähle das Paket, das am besten zu dir passt. Danach geht es direkt mit einem unverbindlichen Erstgespräch weiter.
+        </p>
+      </div>
+
+      <section class="pricing-packages reveal reveal-delay-1" aria-label="Preispakete">
+        <article class="glass-card pricing-card">
+          <p class="pricing-plan">STARTER</p>
+          <p class="pricing-value">179 €</p>
+          <p class="pricing-desc">Einfacher Einstieg</p>
+          <ul class="pricing-list">
+            <li>✅ 1-seitige Website</li>
+            <li>✅ Kontaktformular</li>
+            <li>✅ Google Maps eingebunden</li>
+            <li>✅ Mobile-optimiert</li>
+            <li>✅ 2 Korrekturschleifen</li>
+          </ul>
+          <div class="pricing-card-actions">
+            <a class="btn btn-secondary pricing-package-btn" href="index.html#contact">
+              Jetzt starten
+            </a>
+            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact">
+              Kostenloses Erstgespräch buchen
+            </a>
+          </div>
+        </article>
+
+        <article class="glass-card pricing-card featured">
+          <span class="pricing-badge">Beliebteste Wahl</span>
+          <p class="pricing-plan">BUSINESS</p>
+          <p class="pricing-value">349 €</p>
+          <p class="pricing-desc">Alles was ein lokaler Betrieb braucht</p>
+          <ul class="pricing-list">
+            <li>✅ 5 Unterseiten</li>
+            <li>✅ Kontaktformular + Google Maps</li>
+            <li>✅ SEO-Grundoptimierung</li>
+            <li>✅ Mobile-optimiert</li>
+            <li>✅ 3 Korrekturschleifen</li>
+            <li>✅ 30 Tage Support</li>
+          </ul>
+          <div class="pricing-card-actions">
+            <a class="btn btn-primary pricing-package-btn" href="index.html#contact">
+              Jetzt starten
+            </a>
+            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact">
+              Kostenloses Erstgespräch buchen
+            </a>
+          </div>
+        </article>
+
+        <article class="glass-card pricing-card">
+          <p class="pricing-plan">PREMIUM</p>
+          <p class="pricing-value">649 €</p>
+          <p class="pricing-desc">Für Betriebe, die wachsen wollen</p>
+          <ul class="pricing-list">
+            <li>✅ 10 Unterseiten</li>
+            <li>✅ Alles aus Business</li>
+            <li>✅ Erweiterte SEO-Texte</li>
+            <li>✅ Google Analytics</li>
+            <li>✅ 5 Korrekturschleifen</li>
+            <li>✅ 90 Tage Priority-Support</li>
+          </ul>
+          <div class="pricing-card-actions">
+            <a class="btn btn-secondary pricing-package-btn" href="index.html#contact">
+              Jetzt starten
+            </a>
+            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact">
+              Kostenloses Erstgespräch buchen
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <p class="pricing-note" style="margin-top: 28px;">
+        20 % bei Auftragserteilung · 80 % bei Übergabe · Angebot gültig 14 Tage
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo" style="margin-bottom: 8px; opacity: 0.9;">My<span>Website</span></div>
+        <p class="footer-center" style="margin-bottom: 12px;">&copy; 2026 MyWebsite. Alle Rechte vorbehalten.</p>
+        <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: center;">
+          <a class="footer-email" href="mailto:mywebsite.kontakt@gmail.com" aria-label="E-Mail senden">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            mywebsite.kontakt@gmail.com
+          </a>
+          <a href="impressum.html" class="footer-legal-link">Impressum & Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="js/main.js?v=2.0"></script>
+</body>
+</html>
+

@@ -15,7 +15,7 @@
         {{from_email}}   → E-Mail des Absenders
         {{budget}}       → gewähltes Budget
         {{message}}      → Nachricht
-        To Email:        mywebsite.kontakt@gmail.com
+        To Email:        mywebsite.info@web.de
    4. Kopiere die Template-ID
    5. Gehe zu Account → API Keys → kopiere den Public Key
    6. Trage alles unten ein
@@ -293,7 +293,7 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
       from_email: email,
       budget: budget,
       message: message,
-      to_email: 'mywebsite.kontakt@gmail.com',
+      to_email: 'mywebsite.info@web.de',
     };
 
     // Try EmailJS first
@@ -332,7 +332,7 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
       `Von: ${email}\nBudget: ${budget}\n\nNachricht:\n${message}`
     );
     window.location.href =
-      `mailto:mywebsite.kontakt@gmail.com?subject=${subject}&body=${body}`;
+      `mailto:mywebsite.info@web.de?subject=${subject}&body=${body}`;
   }
 })();
 

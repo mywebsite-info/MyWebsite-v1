@@ -28,7 +28,7 @@
       <ul class="nav-links" role="list">
         <div class="nav-indicator" id="navIndicator"></div>
         <li><a href="index.html#examples">Projekte</a></li>
-        <li><a href="index.html#contact">Kontakt</a></li>
+        <li><a href="index.html#contact">Kontakte</a></li>
         <li><a href="preise.html" style="color:var(--primary-light)">Preise</a></li>
         <li><a href="about.html">Über uns</a></li>
       </ul>
@@ -45,7 +45,7 @@
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
     <a href="index.html#examples">Projekte</a>
-    <a href="index.html#contact">Kontakt</a>
+    <a href="index.html#contact">Kontakte</a>
     <a href="preise.html">Preise</a>
     <a href="about.html">Über uns</a>
     <a class="btn btn-primary" href="index.html#contact" style="margin-top:24px;">Starten</a>
@@ -74,10 +74,10 @@
             <li>✅ 2 Korrekturschleifen</li>
           </ul>
           <div class="pricing-card-actions">
-            <a class="btn btn-secondary pricing-package-btn" href="index.html#contact">
+            <a class="btn btn-secondary pricing-package-btn" href="index.html#contact" data-package="starter">
               Jetzt starten
             </a>
-            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact">
+            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact" data-package="starter">
               Kostenloses Erstgespräch buchen
             </a>
           </div>
@@ -97,10 +97,10 @@
             <li>✅ 30 Tage Support</li>
           </ul>
           <div class="pricing-card-actions">
-            <a class="btn btn-primary pricing-package-btn" href="index.html#contact">
+            <a class="btn btn-primary pricing-package-btn" href="index.html#contact" data-package="business">
               Jetzt starten
             </a>
-            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact">
+            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact" data-package="business">
               Kostenloses Erstgespräch buchen
             </a>
           </div>
@@ -119,14 +119,199 @@
             <li>✅ 90 Tage Priority-Support</li>
           </ul>
           <div class="pricing-card-actions">
-            <a class="btn btn-secondary pricing-package-btn" href="index.html#contact">
+            <a class="btn btn-secondary pricing-package-btn" href="index.html#contact" data-package="premium">
               Jetzt starten
             </a>
-            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact">
+            <a class="btn btn-secondary pricing-advice-btn" href="index.html#contact" data-package="premium">
               Kostenloses Erstgespräch buchen
             </a>
           </div>
         </article>
+      </section>
+
+      <section class="glass-card pricing-config reveal reveal-delay-2" id="preis-konfigurator" aria-label="Preis-Konfigurator">
+        <div class="pricing-config-top">
+          <div class="pricing-config-left">
+            <div class="pricing-config-kicker">CUSTOM</div>
+            <h2 class="pricing-config-title">Dein eigenes Paket.</h2>
+            <p class="pricing-config-subtitle">Wähle nur, was du brauchst.</p>
+          </div>
+
+          <div class="pricing-total-wrap">
+            <div class="pricing-total-label">Dein Preis</div>
+            <div class="pricing-total" id="pricingTotal">99 €</div>
+            <div class="pricing-saving" id="pricingSaving">Du sparst 50 €</div>
+          </div>
+        </div>
+
+        <div class="pricing-divider" aria-hidden="true"></div>
+
+        <div class="pricing-option-section">
+          <div class="pricing-group-title">SEITENUMFANG - WÄHLE EINE OPTION</div>
+          <div class="pricing-option-grid cols-3" role="radiogroup" aria-label="Seitenumfang">
+            <label class="pricing-option">
+              <input type="radio" name="pages" value="99" data-old-price="149" checked />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">1 Seite</div>
+                <div class="pricing-option-price">99 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="pages" value="149" data-old-price="199" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">5 Seiten</div>
+                <div class="pricing-option-price">149 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="pages" value="249" data-old-price="299" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">10 Seiten</div>
+                <div class="pricing-option-price">249 €</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="pricing-option-section">
+          <div class="pricing-group-title">KORREKTUREN - WÄHLE EINE OPTION</div>
+          <div class="pricing-option-grid cols-4" role="radiogroup" aria-label="Korrekturen">
+            <label class="pricing-option">
+              <input type="radio" name="revision" value="0" data-old-price="0" checked />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Keine</div>
+                <div class="pricing-option-price">0 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="revision" value="49" data-old-price="79" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">2 Korrekturschleifen</div>
+                <div class="pricing-option-price">49 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="revision" value="99" data-old-price="149" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">3 Korrekturschleifen</div>
+                <div class="pricing-option-price">99 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="revision" value="149" data-old-price="199" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">5 Korrekturschleifen</div>
+                <div class="pricing-option-price">149 €</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="pricing-option-section">
+          <div class="pricing-group-title">SUPPORT - WÄHLE EINE OPTION</div>
+          <div class="pricing-option-grid cols-4" role="radiogroup" aria-label="Support">
+            <label class="pricing-option">
+              <input type="radio" name="support" value="0" data-old-price="0" checked />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Kein Support</div>
+                <div class="pricing-option-price">0 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="support" value="39" data-old-price="59" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">30 Tage</div>
+                <div class="pricing-option-price">39 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="support" value="69" data-old-price="99" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">60 Tage</div>
+                <div class="pricing-option-price">69 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="radio" name="support" value="99" data-old-price="149" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">90 Tage Priority</div>
+                <div class="pricing-option-price">99 €</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="pricing-option-section">
+          <div class="pricing-group-title">EXTRAS - MEHRERE WÄHLBAR</div>
+          <div class="pricing-option-grid cols-2" role="group" aria-label="Extras">
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="49" data-extra="kontaktformular" data-old-price="69" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Kontaktformular</div>
+                <div class="pricing-option-price">49 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="59" data-extra="seo-grund" data-old-price="89" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">SEO-Grundoptimierung</div>
+                <div class="pricing-option-price">59 €</div>
+              </div>
+            </label>
+
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="29" data-extra="maps" data-old-price="39" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Google Maps</div>
+                <div class="pricing-option-price">29 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="39" data-extra="analytics" data-old-price="59" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Google Analytics</div>
+                <div class="pricing-option-price">39 €</div>
+              </div>
+            </label>
+
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="99" data-extra="seo-texte" data-old-price="139" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Erweiterte SEO-Texte</div>
+                <div class="pricing-option-price">99 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="49" data-extra="eigene-fotos" data-old-price="69" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Eigene Fotos einbauen</div>
+                <div class="pricing-option-price">49 €</div>
+              </div>
+            </label>
+
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="39" data-extra="logo" data-old-price="59" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Logo einbinden</div>
+                <div class="pricing-option-price">39 €</div>
+              </div>
+            </label>
+            <label class="pricing-option">
+              <input type="checkbox" name="extra" value="89" data-extra="wartungsmonat" data-old-price="119" />
+              <div class="pricing-option-body">
+                <div class="pricing-option-main">Wartungsmonat</div>
+                <div class="pricing-option-price">89 €</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="pricing-config-actions">
+          <a class="btn btn-primary pricing-final-btn" id="requestBtn" href="index.html#contact">
+            Unverbindlich anfragen &rarr;
+          </a>
+          <p class="pricing-note">Keine Vorauszahlung: Erst zahlen, wenn du zufrieden bist.</p>
+        </div>
       </section>
 
       <p class="pricing-note" style="margin-top: 28px;">
@@ -157,6 +342,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script src="js/main.js?v=2.0"></script>
+  <script src="js/pricing.js?v=1.0"></script>
 </body>
 </html>
 

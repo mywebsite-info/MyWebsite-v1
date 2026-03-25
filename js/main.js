@@ -261,11 +261,10 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
     e.preventDefault();
 
     const email = document.getElementById('email').value.trim();
-    const budget = document.getElementById('budget').value;
     const message = document.getElementById('message').value.trim();
 
     // Basic validation
-    if (!email || !budget || !message) {
+    if (!email || !message) {
       showToast('Bitte alle Felder ausfüllen.',
           '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FEBC2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
           true);
@@ -291,7 +290,6 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
 
     const templateParams = {
       from_email: email,
-      budget: budget,
       message: message,
       to_email: 'mywebsite.info@web.de',
     };
@@ -309,12 +307,12 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
         onSuccess();
       } catch (err) {
         console.error('EmailJS Fehler:', err);
-        fallbackMailto(email, budget, message);
+        fallbackMailto(email, message);
         onSuccess('Anfrage vorbereitet — Ihr Standard-Mail-Programm öffnet sich.');
       }
     } else {
       // Fallback if EmailJS not yet configured
-      fallbackMailto(email, budget, message);
+      fallbackMailto(email, message);
       onSuccess();
     }
 
@@ -326,10 +324,10 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
       }
   });
 
-  function fallbackMailto(email, budget, message) {
-    const subject = encodeURIComponent(`Website-Anfrage von ${email} — Budget: ${budget}`);
+  function fallbackMailto(email, message) {
+    const subject = encodeURIComponent(`Website-Anfrage von ${email}`);
     const body = encodeURIComponent(
-      `Von: ${email}\nBudget: ${budget}\n\nNachricht:\n${message}`
+      `Von: ${email}\n\nNachricht:\n${message}`
     );
     window.location.href =
       `mailto:mywebsite.info@web.de?subject=${subject}&body=${body}`;
@@ -383,6 +381,10 @@ document.head.appendChild(spinStyle);
     // 1. Check if we are on About page
     if (window.location.pathname.includes('about.html')) {
        return Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
+    }
+    // 2. Check if we are on Prices page
+    if (window.location.pathname.includes('preise.html')) {
+       return Array.from(links).find(l => l.getAttribute('href') && l.getAttribute('href').includes('preise.html'));
     }
     // 2. Check scroll sections
     const scrollPos = window.scrollY + 200;

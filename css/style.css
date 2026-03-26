@@ -1799,6 +1799,7 @@ textarea.form-control {
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
   margin-top: 32px;
+  align-items: stretch; /* Cards have same height */
 }
 
 .pricing-card {
@@ -1868,6 +1869,43 @@ textarea.form-control {
   gap: 12px;
   margin-top: auto;
   padding-top: 28px;
+}
+
+/* Animations for ALL pricing buttons */
+.pricing-card .btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card .btn::after {
+  content: '';
+  position: absolute;
+  top: -130%;
+  left: -35%;
+  width: 28%;
+  height: 360%;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0));
+  transform: rotate(24deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+
+.pricing-card .btn:hover::after {
+  left: 110%;
+}
+
+.pricing-card .btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(124,77,255,0.15);
+}
+
+/* Specific pulse for any pricing button */
+.pricing-card .btn {
+  animation: cta-pulse 2.4s ease-in-out infinite;
+}
+
+.pricing-card .btn:hover {
+  animation-play-state: paused;
 }
 
 .pricing-config {

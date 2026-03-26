@@ -17,12 +17,65 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=2.0" />
 
-  <!-- EmailJS SDK (lädt asynchron) -->
-  <script
-    type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    defer
-  ></script>
+  <!-- Modal Styles -->
+  <style>
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-content {
+      max-width: 580px;
+      width: 92%;
+      padding: 40px;
+      position: relative;
+      transform: scale(0.9) translateY(30px);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .modal-overlay.active .modal-content {
+      transform: scale(1) translateY(0);
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2.2rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: all 0.2s;
+      z-index: 10;
+      line-height: 1;
+    }
+    .modal-close:hover { opacity: 1; transform: rotate(90deg); }
+    @media (max-width: 600px) {
+      .modal-content { padding: 30px 20px; width: 95%; }
+    }
+  </style>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("9v2FZK6LlCr9enTsl"); 
+    })();
+  </script>
 </head>
 <body>
 
@@ -49,13 +102,12 @@
       <ul class="nav-links" role="list">
         <div class="nav-indicator" id="navIndicator"></div>
         <li><a href="#examples">Projekte</a></li>
-        <li><a href="#contact">Kontakte</a></li>
-        <li><a href="preise.html">Preise</a></li>
+        <li><a href="#pricing">Preise</a></li>
         <li><a href="about.html">Über uns</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a class="btn btn-primary cta-main" href="#contact" id="nav-cta">Kostenlose Erstberatung</a>
+        <a class="btn btn-primary cta-main" href="javascript:void(0)" onclick="openBookingModal('Individuelle Erstberatung')" id="nav-cta">Kostenlose Erstberatung</a>
         <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -66,10 +118,9 @@
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
     <a href="#examples">Projekte</a>
-    <a href="#contact">Kontakte</a>
-    <a href="preise.html">Preise</a>
+    <a href="#pricing">Preise</a>
     <a href="about.html">Über uns</a>
-    <a class="btn btn-primary cta-main" href="#contact" style="margin-top:24px;">Kostenlose Erstberatung</a>
+    <a class="btn btn-primary cta-main" href="javascript:void(0)" onclick="openBookingModal('Individuelle Erstberatung')" style="margin-top:24px;">Kostenlose Erstberatung</a>
   </div>
 
 
@@ -254,7 +305,7 @@
           <div class="section-label">Referenzen</div>
           <h2 class="section-title" id="examples-heading">Unsere <span>Arbeit</span></h2>
         </div>
-        <a class="btn btn-secondary reveal reveal-delay-1" href="#contact">
+        <a class="btn btn-secondary reveal reveal-delay-1" href="#pricing">
           Kostenlose Erstberatung &rarr;
         </a>
       </div>
@@ -332,87 +383,187 @@
   <!-- ══════════════════════════════════════════════════════════
        CONTACT SECTION
        ══════════════════════════════════════════════════════════ -->
-  <section class="section contact" id="contact" aria-labelledby="contact-heading">
+  <section class="section pricing" id="pricing" aria-labelledby="pricing-heading">
     <div class="container">
-      <div class="contact-inner">
+      <div class="reveal pricing-heading" style="text-align: center; margin-bottom: 64px; max-width: 840px; margin-left: auto; margin-right: auto;">
+        <div class="section-label">Pakete & Preise</div>
+        <h2 class="section-title" id="pricing-heading" style="margin-left: auto; margin-right: auto; line-height: 1.1;">Faire <span>Preise</span><br>ohne Überraschungen</h2>
+        <p class="section-subtitle" style="margin: 0 auto; max-width: 600px;">
+          Wähle das Paket, das am besten zu dir passt. Danach geht es direkt mit einem unverbindlichen Erstgespräch weiter.
+        </p>
+      </div>
 
-        <!-- Left: info -->
-        <div class="contact-info reveal">
-          <div class="section-label">Kontakt</div>
-          <h2 class="section-title" id="contact-heading">
-            Let's Build Your<br><span>Website</span>
-          </h2>
-          <p class="section-subtitle">
-            Erzählen Sie uns, was Sie brauchen — wir kümmern uns um den Rest.
-          </p>
-
-          <div class="contact-extras">
-            <div class="contact-extra-item">
-              <div class="contact-extra-icon" aria-hidden="true">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <span>mywebsite.info@web.de</span>
-            </div>
-            <div class="contact-extra-item">
-              <div class="contact-extra-icon" aria-hidden="true">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
-              </div>
-              <span>Antwort innerhalb von 24 Stunden</span>
-            </div>
-            <div class="contact-extra-item">
-              <div class="contact-extra-icon" aria-hidden="true">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              </div>
-              <span>Unverbindliche Erstberatung — kostenlos</span>
-            </div>
+      <div class="pricing-packages reveal reveal-delay-1">
+        <article class="glass-card pricing-card">
+          <p class="pricing-plan">STARTER</p>
+          <p class="pricing-value">179 €</p>
+          <p class="pricing-desc">Einfacher Einstieg</p>
+          <ul class="pricing-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>1-seitige Website</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Kontaktformular</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Google Maps eingebunden</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Mobile-optimiert</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>2 Korrekturschleifen</li>
+          </ul>
+          <div class="pricing-card-actions">
+            <a class="btn btn-secondary" href="javascript:void(0)" onclick="openBookingModal('Starter')">Jetzt buchen</a>
           </div>
+        </article>
+
+        <article class="glass-card pricing-card featured">
+          <span class="pricing-badge">Beliebteste Wahl</span>
+          <p class="pricing-plan">BUSINESS</p>
+          <p class="pricing-value">349 € <span style="text-decoration: line-through; font-size: 0.9rem; opacity: 0.5; margin-left: 8px;">499 €</span></p>
+          <p class="pricing-desc">Alles was ein lokaler Betrieb braucht</p>
+          <ul class="pricing-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>5 Unterseiten</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Kontaktformular + Google Maps</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>SEO-Grundoptimierung</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Mobile-optimiert</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>3 Korrekturschleifen</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>30 Tage Support</li>
+          </ul>
+          <div class="pricing-card-actions">
+            <a class="btn btn-primary" href="javascript:void(0)" onclick="openBookingModal('Business')">Jetzt buchen</a>
+          </div>
+        </article>
+
+        <article class="glass-card pricing-card">
+          <p class="pricing-plan">PREMIUM</p>
+          <p class="pricing-value">649 €</p>
+          <p class="pricing-desc">Für Betriebe, die wachsen wollen</p>
+          <ul class="pricing-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>10 Unterseiten</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Alles aus Business</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Erweiterte SEO-Texte</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Google Analytics</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>5 Korrekturschleifen</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>90 Tage Priority-Support</li>
+          </ul>
+          <div class="pricing-card-actions">
+            <a class="btn btn-secondary" href="javascript:void(0)" onclick="openBookingModal('Premium')">Jetzt buchen</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="pricing-note reveal" style="text-align: center; margin-top: 32px; color: var(--secondary); font-size: 0.9rem;">
+        20 % bei Auftragserteilung · 80 % bei Übergabe · Angebot gültig 14 Tage
+      </p>
+    </div>
+  </section>  <!-- ══════════════════════════════════════════════════════════
+       BOOKING MODAL
+       ══════════════════════════════════════════════════════════ -->
+  <div id="bookingModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <div class="modal-content glass-card">
+      <button class="modal-close" onclick="closeBookingModal()" aria-label="Schließen">&times;</button>
+      
+      <div id="booking-form-container">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <div class="section-label">Unverbindliche Anfrage</div>
+          <h2 class="section-title" id="modal-title-text" style="font-size: 2rem; margin-bottom: 8px;"><span>Paket</span> anfragen</h2>
+          <p style="font-size: 0.9rem; color: var(--secondary);">Lass uns gemeinsam dein Projekt zum Leben erwecken.</p>
         </div>
 
-        <!-- Right: form -->
-        <div class="glass-card contact-form-wrap reveal reveal-delay-2">
-          <form id="contactForm" novalidate aria-label="Kontaktformular">
+        <form id="booking-form">
+          <div class="form-group">
+            <label class="form-label" for="booking-email">E-Mail Adresse *</label>
+            <input type="email" id="booking-email" class="form-control" required placeholder="deine@mail.de">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="booking-desc">Was soll die Website zeigen? (Thema/Firma) *</label>
+            <textarea id="booking-desc" class="form-control" rows="4" required placeholder="Beschreib kurz dein Projekt oder deine Firma..."></textarea>
+          </div>
 
-            <div class="form-group">
-              <label class="form-label" for="email">Ihre E-Mail-Adresse *</label>
-              <input
-                class="form-control"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="name@ihrunternehmen.de"
-                required
-                autocomplete="email"
-              />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="message">Was benötigen Sie? *</label>
-              <textarea
-                class="form-control"
-                id="message"
-                name="message"
-                placeholder="Beschreiben Sie Ihr Projekt kurz…"
-                required
-              ></textarea>
-            </div>
-
-            <button class="btn btn-primary cta-main form-submit" type="submit" id="form-submit-btn">
-              Jetzt Erstgespraech anfragen &rarr;
+          <div style="text-align: center; margin-top: 32px;">
+            <button type="submit" class="btn btn-primary" id="booking-submit-btn" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+              Unverbindliche Anfrage absenden
             </button>
-
-          </form>
+            <p style="font-size: 0.8rem; color: var(--secondary); margin-top: 12px;">
+              Kostenlose Erstberatung – wir melden uns bei dir.
+            </p>
+          </div>
+        </form>
+        
+        <div id="booking-success" style="display: none; text-align: center; padding: 20px 0;">
+          <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+          <h3 style="font-size: 2.2rem; margin-bottom: 12px;">Danke!</h3>
+          <p style="color: var(--secondary); font-size: 1.1rem; line-height: 1.6;">Deine Anfrage ist bei uns eingegangen.<br>Wir melden uns in Kürze bei dir.</p>
+          <button class="btn btn-secondary" style="margin-top: 32px; width: 100%;" onclick="closeBookingModal()">Fenster schließen</button>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+
+  <script>
+    function openBookingModal(pkg) {
+      const modal = document.getElementById('bookingModal');
+      const title = document.getElementById('modal-title-text');
+      const pkgName = pkg || sessionStorage.getItem('gewaehltesPaket') || 'Individuelles';
+      
+      sessionStorage.setItem('gewaehltesPaket', pkgName);
+      title.innerHTML = `<span>${pkgName}</span>-Paket anfragen`;
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scroll
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scroll
+      
+      // Reset form if success was shown
+      setTimeout(() => {
+        document.getElementById('booking-form').style.display = 'block';
+        document.getElementById('booking-success').style.display = 'none';
+        document.getElementById('booking-form-container').style.borderColor = 'transparent';
+      }, 400);
+    }
+
+    // Close on backdrop click
+    document.getElementById('bookingModal').addEventListener('click', (e) => {
+      if (e.target.id === 'bookingModal') closeBookingModal();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const bForm = document.getElementById('booking-form');
+      const bContainer = document.getElementById('booking-form-container');
+      const bSuccess = document.getElementById('booking-success');
+      
+      if (!bForm) return;
+
+      bForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const bBtn = document.getElementById('booking-submit-btn');
+        const email = document.getElementById('booking-email').value;
+        const desc = document.getElementById('booking-desc').value;
+
+        bBtn.disabled = true;
+        const origText = bBtn.innerHTML;
+        bBtn.innerHTML = 'Wird gesendet...';
+
+        const templateParams = {
+          email: email,
+          beschreibung: desc,
+          paket: sessionStorage.getItem('gewaehltesPaket') || 'Nicht angegeben',
+          to_email: 'mywebsite.info@web.de'
+        };
+
+        try {
+          await emailjs.send('service_d24xvr1', 'template_20cmjvv', templateParams);
+          bForm.style.display = 'none';
+          bSuccess.style.display = 'block';
+        } catch (err) {
+          console.error('Email Fehler:', err);
+          alert('Ein Fehler ist aufgetreten. Sende deine Anfrage bitte direkt an mywebsite.info@web.de');
+          bBtn.disabled = false;
+          bBtn.innerHTML = origText;
+        }
+      });
+    });
+  </script>
 
 
   <!-- ══════════════════════════════════════════════════════════
@@ -431,7 +582,7 @@
             </svg>
             mywebsite.info@web.de
           </a>
-          <a href="preise.html" class="footer-legal-link">Preise</a>
+          <a href="#pricing" class="footer-legal-link">Preise</a>
           <a href="impressum.html" class="footer-legal-link">Impressum & Datenschutz</a>
         </div>
       </div>

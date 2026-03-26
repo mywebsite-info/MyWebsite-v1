@@ -21,7 +21,7 @@
    6. Trage alles unten ein
    ──────────────────────────────────────────────────────────── */
 const EMAILJS_CONFIG = {
-  publicKey: '_q0LSg9XyPe_lZyMA',
+  publicKey: '9v2FZK6LlCr9enTsl',
   serviceId: 'service_d24xvr1',
   templateId: 'template_1e21emq',
 };
@@ -241,221 +241,6 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
 }
 
 
-/* ────────────────────────────────────────────────────────────
-   7. EMAILJS CONTACT FORM
-   ──────────────────────────────────────────────────────────── */
-(function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  // Initialize EmailJS once SDK is loaded
-  function initEmailJS() {
-    if (window.emailjs && EMAILJS_CONFIG.publicKey !== 'DEIN_PUBLIC_KEY') {
-      emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-      return true;
-    }
-    return false;
-  }
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    // Basic validation
-    if (!email || !message) {
-      showToast('Bitte alle Felder ausfüllen.',
-        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FEBC2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
-        true);
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showToast('Bitte eine gültige E-Mail-Adresse eingeben.',
-        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FEBC2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
-        true);
-      return;
-    }
-
-    const btn = form.querySelector('.form-submit');
-    const orig = btn.innerHTML;
-    btn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="animation:spin 0.8s linear infinite">
-        <circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-        <path d="M9 2a7 7 0 0 1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      Wird gesendet…`;
-    btn.disabled = true;
-
-    const templateParams = {
-      from_email: email,
-      message: message,
-      to_email: 'mywebsite.info@web.de',
-    };
-
-    // Try EmailJS first
-    const ejsReady = initEmailJS();
-
-    if (ejsReady) {
-      try {
-        await emailjs.send(
-          EMAILJS_CONFIG.serviceId,
-          EMAILJS_CONFIG.templateId,
-          templateParams
-        );
-        onSuccess();
-      } catch (err) {
-        console.error('EmailJS Fehler:', err);
-        fallbackMailto(email, message);
-        onSuccess('Anfrage vorbereitet — Ihr Standard-Mail-Programm öffnet sich.');
-      }
-    } else {
-      // Fallback if EmailJS not yet configured
-      fallbackMailto(email, message);
-      onSuccess();
-    }
-
-    function onSuccess(msg = 'Anfrage gesendet! Wir melden uns bald.') {
-      btn.innerHTML = orig;
-      btn.disabled = false;
-      form.reset();
-      showToast(msg, '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
-    }
-  });
-
-  function fallbackMailto(email, message) {
-    const subject = encodeURIComponent(`Website-Anfrage von ${email}`);
-    const body = encodeURIComponent(
-      `Von: ${email}\n\nNachricht:\n${message}`
-    );
-    window.location.href =
-      `mailto:mywebsite.info@web.de?subject=${subject}&body=${body}`;
-  }
-})();
-
-/* CSS spin keyframe for loading spinner */
-const spinStyle = document.createElement('style');
-spinStyle.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
-document.head.appendChild(spinStyle);
-
-
-/* ────────────────────────────────────────────────────────────
-   8. ACTIVE NAV LINK HIGHLIGHT
-   ──────────────────────────────────────────────────────────── */
-/* ────────────────────────────────────────────────────────────
-   9. SLIDING NAV INDICATOR (Liquid Glass Slider)
-   ───────────────────────────────────────────────────────────── */
-(function initNavIndicator() {
-  const navContainer = document.querySelector('.nav-links');
-  const links = navContainer ? navContainer.querySelectorAll('a') : [];
-  const indicator = document.getElementById('navIndicator');
-  const sections = document.querySelectorAll('section[id]');
-
-  if (!navContainer || !indicator) return;
-
-  function move(el, immediate = false) {
-    if (!el) {
-      indicator.style.opacity = '0';
-      return;
-    }
-    const rect = el.getBoundingClientRect();
-    const parentRect = navContainer.getBoundingClientRect();
-
-    if (immediate) indicator.style.transition = 'none';
-    indicator.style.width = `${rect.width}px`;
-    indicator.style.left = `${rect.left - parentRect.left}px`;
-    indicator.style.top = `${rect.top - parentRect.top}px`;
-    indicator.style.height = `${rect.height}px`;
-    indicator.style.opacity = '1';
-
-    if (immediate) {
-      // Force reflow
-      indicator.offsetHeight;
-      indicator.style.transition = '';
-    }
-  }
-
-  // Find the currently "effective" active link (page or scroll)
-  function getActiveLink() {
-    // 1. Check if we are on About page
-    if (window.location.pathname.includes('about.html')) {
-      return Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
-    }
-    // 2. Check if we are on Prices page
-    if (window.location.pathname.includes('preise.html')) {
-      return Array.from(links).find(l => l.getAttribute('href') && l.getAttribute('href').includes('preise.html'));
-    }
-    // 2. Check scroll sections
-    const scrollPos = window.scrollY + 200;
-    let current = null;
-    sections.forEach(s => {
-      if (scrollPos >= s.offsetTop && scrollPos < s.offsetTop + s.offsetHeight) {
-        current = s.id;
-      }
-    });
-    if (current) {
-      return Array.from(links).find(l => l.getAttribute('href').endsWith(`#${current}`));
-    }
-    return null;
-  }
-
-  function updateActive() {
-    const activeLink = getActiveLink();
-    links.forEach(l => l.classList.toggle('active', l === activeLink));
-    // When not hovering, the indicator stays on the active link
-    if (!navContainer.matches(':hover')) {
-      move(activeLink);
-    }
-  }
-
-  // Hover effects
-  links.forEach(link => {
-    link.addEventListener('mouseenter', () => move(link));
-  });
-
-  navContainer.addEventListener('mouseleave', () => {
-    move(getActiveLink());
-  });
-
-  // Scroll & Resize events
-  window.addEventListener('scroll', () => {
-    const active = getActiveLink();
-    links.forEach(l => l.classList.toggle('active', l === active));
-    if (!navContainer.matches(':hover')) move(active);
-  });
-
-  window.addEventListener('resize', () => move(getActiveLink()));
-
-  // Initial position
-  setTimeout(() => move(getActiveLink(), true), 100);
-})();
-
-
-/* ────────────────────────────────────────────────────────────
-   11. MOUSE GLOW SPOTLIGHT
-   ───────────────────────────────────────────────────────────── */
-(function initMouseGlow() {
-  const glow = document.getElementById('mouseGlow');
-  if (!glow) return;
-
-  // Track if mouse is moving to show/hide
-  window.addEventListener('mousemove', (e) => {
-    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-    if (getComputedStyle(glow).opacity === '0') {
-      glow.style.opacity = '1';
-    }
-  });
-
-  document.addEventListener('mouseleave', () => {
-    glow.style.opacity = '0';
-  });
-
-  document.addEventListener('mouseenter', () => {
-    glow.style.opacity = '1';
-  });
-})();
-
 
 /* ────────────────────────────────────────────────────────────
    9. SOLUTION TOGGLE LOGIC
@@ -533,6 +318,132 @@ function triggerConfetti() {
     setTimeout(() => piece.remove(), duration * 1000 + 100);
   }
 }
+
+
+/* CSS spin keyframe for loading spinner */
+const spinStyle = document.createElement('style');
+spinStyle.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
+document.head.appendChild(spinStyle);
+
+
+/* ────────────────────────────────────────────────────────────
+   8. ACTIVE NAV LINK HIGHLIGHT
+   ──────────────────────────────────────────────────────────── */
+/* ────────────────────────────────────────────────────────────
+   9. SLIDING NAV INDICATOR (Liquid Glass Slider)
+   ───────────────────────────────────────────────────────────── */
+(function initNavIndicator() {
+  const navContainer = document.querySelector('.nav-links');
+  const links = navContainer ? navContainer.querySelectorAll('a') : [];
+  const indicator = document.getElementById('navIndicator');
+  const sections = document.querySelectorAll('section[id]');
+
+  if (!navContainer || !indicator) return;
+
+  function move(el, immediate = false) {
+    if (!el) {
+      indicator.style.opacity = '0';
+      return;
+    }
+    const rect = el.getBoundingClientRect();
+    const parentRect = navContainer.getBoundingClientRect();
+
+    if (immediate) indicator.style.transition = 'none';
+    indicator.style.width = `${rect.width}px`;
+    indicator.style.left = `${rect.left - parentRect.left}px`;
+    indicator.style.top = `${rect.top - parentRect.top}px`;
+    indicator.style.height = `${rect.height}px`;
+    indicator.style.opacity = '1';
+
+    if (immediate) {
+      // Force reflow
+      indicator.offsetHeight;
+      indicator.style.transition = '';
+    }
+  }
+
+  // Find the currently "effective" active link (page or scroll)
+  function getActiveLink() {
+    // 1. Check if we are on About page
+    if (window.location.pathname.includes('about.html')) {
+      return Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
+    }
+    // 2. Check if we are on Prices section
+    if (window.location.hash.includes('#pricing')) {
+      return Array.from(links).find(l => l.getAttribute('href').includes('#pricing'));
+    }
+    // 2. Check scroll sections
+    const scrollPos = window.scrollY + 200;
+    let current = null;
+    sections.forEach(s => {
+      if (scrollPos >= s.offsetTop && scrollPos < s.offsetTop + s.offsetHeight) {
+        current = s.id;
+      }
+    });
+    if (current) {
+      return Array.from(links).find(l => l.getAttribute('href').endsWith(`#${current}`));
+    }
+    return null;
+  }
+
+  function updateActive() {
+    const activeLink = getActiveLink();
+    links.forEach(l => l.classList.toggle('active', l === activeLink));
+    // When not hovering, the indicator stays on the active link
+    if (!navContainer.matches(':hover')) {
+      move(activeLink);
+    }
+  }
+
+  // Hover effects
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => move(link));
+  });
+
+  navContainer.addEventListener('mouseleave', () => {
+    move(getActiveLink());
+  });
+
+  // Scroll & Resize events
+  window.addEventListener('scroll', () => {
+    const active = getActiveLink();
+    links.forEach(l => l.classList.toggle('active', l === active));
+    if (!navContainer.matches(':hover')) move(active);
+  });
+
+  window.addEventListener('resize', () => move(getActiveLink()));
+
+  // Initial position
+  setTimeout(() => move(getActiveLink(), true), 100);
+})();
+
+
+/* ────────────────────────────────────────────────────────────
+   11. MOUSE GLOW SPOTLIGHT
+   ───────────────────────────────────────────────────────────── */
+(function initMouseGlow() {
+  const glow = document.getElementById('mouseGlow');
+  if (!glow) return;
+
+  // Track if mouse is moving to show/hide
+  window.addEventListener('mousemove', (e) => {
+    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+    if (getComputedStyle(glow).opacity === '0') {
+      glow.style.opacity = '1';
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    glow.style.opacity = '1';
+  });
+})();
+
+
+
 
 /* ────────────────────────────────────────────────────────────
    12. HERO MOCKUP TILT EFFECT

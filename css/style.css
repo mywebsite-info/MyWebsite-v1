@@ -1802,8 +1802,11 @@ textarea.form-control {
 }
 
 .pricing-card {
-  padding: 26px 22px;
+  padding: 36px 28px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .pricing-badge {
@@ -1846,20 +1849,25 @@ textarea.form-control {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  flex: 1;
 }
 
 .pricing-list li {
   color: #fff;
   opacity: 0.92;
   font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .pricing-card-actions {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 28px;
 }
 
 .pricing-config {
@@ -2048,3 +2056,4 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 }
+

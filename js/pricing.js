@@ -134,7 +134,7 @@
     savingEl.textContent = `Du sparst ${formatEuro(savings)}`;
 
     if (requestBtn) {
-      requestBtn.href = `index.html#contact?preis=${Math.round(effectiveTotal)}&extras=${selectedExtrasCount}`;
+      requestBtn.href = `buchung.html?package=custom&preis=${Math.round(effectiveTotal)}&extras=${selectedExtrasCount}`;
     }
   }
 

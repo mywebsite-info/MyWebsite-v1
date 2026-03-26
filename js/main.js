@@ -21,9 +21,9 @@
    6. Trage alles unten ein
    ──────────────────────────────────────────────────────────── */
 const EMAILJS_CONFIG = {
-  publicKey:   '_q0LSg9XyPe_lZyMA',
-  serviceId:   'service_ve8sqlh',
-  templateId:  'template_5q4t422',
+  publicKey: '_q0LSg9XyPe_lZyMA',
+  serviceId: 'service_d24xvr1',
+  templateId: 'template_1e21emq',
 };
 
 
@@ -266,9 +266,9 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
     // Basic validation
     if (!email || !message) {
       showToast('Bitte alle Felder ausfüllen.',
-          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FEBC2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
-          true);
-        return;
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FEBC2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+        true);
+      return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -316,12 +316,12 @@ function showToast(message, icon = '<svg width="18" height="18" viewBox="0 0 24 
       onSuccess();
     }
 
-      function onSuccess(msg = 'Anfrage gesendet! Wir melden uns bald.') {
-        btn.innerHTML = orig;
-        btn.disabled  = false;
-        form.reset();
-        showToast(msg, '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
-      }
+    function onSuccess(msg = 'Anfrage gesendet! Wir melden uns bald.') {
+      btn.innerHTML = orig;
+      btn.disabled = false;
+      form.reset();
+      showToast(msg, '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
+    }
   });
 
   function fallbackMailto(email, message) {
@@ -351,7 +351,7 @@ document.head.appendChild(spinStyle);
   const links = navContainer ? navContainer.querySelectorAll('a') : [];
   const indicator = document.getElementById('navIndicator');
   const sections = document.querySelectorAll('section[id]');
-  
+
   if (!navContainer || !indicator) return;
 
   function move(el, immediate = false) {
@@ -361,17 +361,17 @@ document.head.appendChild(spinStyle);
     }
     const rect = el.getBoundingClientRect();
     const parentRect = navContainer.getBoundingClientRect();
-    
+
     if (immediate) indicator.style.transition = 'none';
     indicator.style.width = `${rect.width}px`;
     indicator.style.left = `${rect.left - parentRect.left}px`;
     indicator.style.top = `${rect.top - parentRect.top}px`;
     indicator.style.height = `${rect.height}px`;
     indicator.style.opacity = '1';
-    
+
     if (immediate) {
       // Force reflow
-      indicator.offsetHeight; 
+      indicator.offsetHeight;
       indicator.style.transition = '';
     }
   }
@@ -380,11 +380,11 @@ document.head.appendChild(spinStyle);
   function getActiveLink() {
     // 1. Check if we are on About page
     if (window.location.pathname.includes('about.html')) {
-       return Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
+      return Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
     }
     // 2. Check if we are on Prices page
     if (window.location.pathname.includes('preise.html')) {
-       return Array.from(links).find(l => l.getAttribute('href') && l.getAttribute('href').includes('preise.html'));
+      return Array.from(links).find(l => l.getAttribute('href') && l.getAttribute('href').includes('preise.html'));
     }
     // 2. Check scroll sections
     const scrollPos = window.scrollY + 200;
@@ -424,7 +424,7 @@ document.head.appendChild(spinStyle);
     links.forEach(l => l.classList.toggle('active', l === active));
     if (!navContainer.matches(':hover')) move(active);
   });
-  
+
   window.addEventListener('resize', () => move(getActiveLink()));
 
   // Initial position
@@ -450,7 +450,7 @@ document.head.appendChild(spinStyle);
   document.addEventListener('mouseleave', () => {
     glow.style.opacity = '0';
   });
-  
+
   document.addEventListener('mouseenter', () => {
     glow.style.opacity = '1';
   });
@@ -482,12 +482,12 @@ document.head.appendChild(spinStyle);
         section.classList.remove('state-manual');
         section.classList.add('state-autopilot');
       }
-      
+
       // Trigger minimalist full-page confetti
       if (isManualTrigger) {
         triggerConfetti();
       }
-      
+
     } else {
       manualSet.classList.remove('solution-set-hidden');
       autopilotSet.classList.add('solution-set-hidden');
@@ -510,25 +510,25 @@ document.head.appendChild(spinStyle);
 function triggerConfetti() {
   const count = 35; // Minimalist but spread out
   const colors = ['#C084FF', '#7C4DFF', '#E0E0E0'];
-  
+
   for (let i = 0; i < count; i++) {
     const piece = document.createElement('div');
     piece.className = 'confetti-piece-full';
-    
+
     // Random horizontal start, slight variation in top
     piece.style.left = (Math.random() * 100) + 'vw';
     piece.style.top = (Math.random() * -20) + 'vh';
-    
+
     // Physics & Appearance
     piece.style.setProperty('--dx', `${(Math.random() - 0.5) * 300}px`);
     piece.style.setProperty('--dr', `${360 + Math.random() * 720}deg`);
-    
+
     piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    
+
     // Randomize speed for natural feel
     const duration = 1.3 + Math.random() * 0.7;
     piece.style.animation = `confetti-fall ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
-    
+
     document.body.appendChild(piece);
     setTimeout(() => piece.remove(), duration * 1000 + 100);
   }
@@ -548,15 +548,15 @@ function triggerConfetti() {
     const rect = mockup.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     // Percentage from center (-0.5 to 0.5)
     const px = (x / rect.width) - 0.5;
     const py = (y / rect.height) - 0.5;
-    
+
     // Calculate rotation: 
-    const rotateY = px * maxRotation; 
+    const rotateY = px * maxRotation;
     const rotateX = -py * maxRotation; // Invert X for natural tilt
-    
+
     mockup.style.setProperty('--tilt-x', `${rotateX}deg`);
     mockup.style.setProperty('--tilt-y', `${rotateY}deg`);
   }

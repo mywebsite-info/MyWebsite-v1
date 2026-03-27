@@ -211,6 +211,10 @@ const EMAILJS_CONFIG = {
 })();
 
 
+
+
+
+
 /* ────────────────────────────────────────────────────────────
    5. HERO PARALLAX
    ──────────────────────────────────────────────────────────── */
@@ -332,11 +336,15 @@ document.head.appendChild(spinStyle);
 /* ────────────────────────────────────────────────────────────
    9. SLIDING NAV INDICATOR (Liquid Glass Slider)
    ───────────────────────────────────────────────────────────── */
+/* ────────────────────────────────────────────────────────────
+   9. SLIDING NAV INDICATOR & SCROLL SPY
+   ───────────────────────────────────────────────────────────── */
 (function initNavIndicator() {
   const navContainer = document.querySelector('.nav-links');
   const links = navContainer ? navContainer.querySelectorAll('a') : [];
   const indicator = document.getElementById('navIndicator');
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('#home, #leistungen, #examples, #pricing'); // Sections to observe
+
 
   if (!navContainer || !indicator) return;
 
@@ -356,44 +364,44 @@ document.head.appendChild(spinStyle);
     indicator.style.opacity = '1';
 
     if (immediate) {
-      // Force reflow
-      indicator.offsetHeight;
+      indicator.offsetHeight; // Force reflow
       indicator.style.transition = '';
     }
   }
 
-  // Find the currently "effective" active link (page or scroll)
-  function getActiveLink() {
-    // 1. Check if we are on About page
-    if (window.location.pathname.includes('about.html')) {
-      return Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
-    }
-    // 2. Check if we are on Prices section
-    if (window.location.hash.includes('#pricing')) {
-      return Array.from(links).find(l => l.getAttribute('href').includes('#pricing'));
-    }
-    // 2. Check scroll sections
-    const scrollPos = window.scrollY + 200;
-    let current = null;
-    sections.forEach(s => {
-      if (scrollPos >= s.offsetTop && scrollPos < s.offsetTop + s.offsetHeight) {
-        current = s.id;
+  function updateActiveLink(id) {
+    const isAboutPage = window.location.pathname.includes('about.html');
+    if (isAboutPage) return; // Handled statically on about page
+
+    let targetHref = `#${id}`;
+    if (id === 'home' || id === 'top') targetHref = '#top';
+
+    links.forEach(l => {
+      const href = l.getAttribute('href');
+      if (href === targetHref) {
+        l.classList.add('active');
+        if (!navContainer.matches(':hover')) move(l);
+      } else if (href && href.startsWith('#')) {
+        l.classList.remove('active');
       }
     });
-    if (current) {
-      return Array.from(links).find(l => l.getAttribute('href').endsWith(`#${current}`));
-    }
-    return null;
   }
 
-  function updateActive() {
-    const activeLink = getActiveLink();
-    links.forEach(l => l.classList.toggle('active', l === activeLink));
-    // When not hovering, the indicator stays on the active link
-    if (!navContainer.matches(':hover')) {
-      move(activeLink);
-    }
-  }
+  // Intersection Observer for Scroll Spy
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: "-80px 0px -20% 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        updateActiveLink(entry.target.id);
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(s => observer.observe(s));
 
   // Hover effects
   links.forEach(link => {
@@ -401,21 +409,26 @@ document.head.appendChild(spinStyle);
   });
 
   navContainer.addEventListener('mouseleave', () => {
-    move(getActiveLink());
+    const activeLink = Array.from(links).find(l => l.classList.contains('active'));
+    move(activeLink);
   });
 
-  // Scroll & Resize events
-  window.addEventListener('scroll', () => {
-    const active = getActiveLink();
-    links.forEach(l => l.classList.toggle('active', l === active));
-    if (!navContainer.matches(':hover')) move(active);
+  // Handle Rezise
+  window.addEventListener('resize', () => {
+    const activeLink = Array.from(links).find(l => l.classList.contains('active'));
+    move(activeLink);
   });
 
-  window.addEventListener('resize', () => move(getActiveLink()));
-
-  // Initial position
-  setTimeout(() => move(getActiveLink(), true), 100);
+  // Initial Check for About Page
+  if (window.location.pathname.includes('about.html')) {
+    const aboutLink = Array.from(links).find(l => l.getAttribute('href').includes('about.html'));
+    if (aboutLink) {
+      aboutLink.classList.add('active');
+      setTimeout(() => move(aboutLink, true), 100);
+    }
+  }
 })();
+
 
 
 /* ────────────────────────────────────────────────────────────
@@ -481,3 +494,14 @@ document.head.appendChild(spinStyle);
   wrapper.addEventListener('mousemove', handleMove);
   wrapper.addEventListener('mouseleave', handleReset);
 })();
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    item.classList.toggle('active');
+  });
+});
+

@@ -30,7 +30,8 @@
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 0.3s ease-out;
+
     }
     .modal-overlay.active {
       opacity: 1;
@@ -39,10 +40,10 @@
     .modal-content {
       max-width: 580px;
       width: 92%;
-      padding: 40px;
+      padding: 30px;
       position: relative;
       transform: scale(0.9) translateY(30px);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.3s ease-out;
       border: 1px solid var(--glass-border);
       background: rgba(255, 255, 255, 0.03);
     }
@@ -51,22 +52,30 @@
     }
     .modal-close {
       position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 2.2rem;
-      background: none;
-      border: none;
+      top: 10px;
+      right: 10px;
+      font-size: 1.4rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
       cursor: pointer;
-      opacity: 0.4;
+      opacity: 0.6;
       transition: all 0.2s;
       z-index: 10;
       line-height: 1;
     }
-    .modal-close:hover { opacity: 1; transform: rotate(90deg); }
+    .modal-close:hover { opacity: 1; transform: scale(1.1); background: rgba(255, 255, 255, 0.1); }
+
     @media (max-width: 600px) {
-      .modal-content { padding: 30px 20px; width: 95%; }
+      .modal-content { padding: 24px 16px; width: 95%; }
     }
+
   </style>
 
   <!-- EmailJS SDK -->
@@ -77,7 +86,8 @@
     })();
   </script>
 </head>
-<body>
+<body class="home-page" id="top">
+
 
   <!-- ── Ambient Background (Liquid Aurora) ────────────────── -->
   <div class="ambient-layer" aria-hidden="true">
@@ -95,16 +105,21 @@
        ══════════════════════════════════════════════════════════ -->
   <nav class="navbar" id="navbar" aria-label="Hauptnavigation">
     <div class="container">
-      <a class="nav-logo" href="#" aria-label="MyWebsite – Startseite">
+      <a class="nav-logo" href="#top" aria-label="MyWebsite – Startseite">
         My<span>Website</span>
       </a>
 
+
       <ul class="nav-links" role="list">
         <div class="nav-indicator" id="navIndicator"></div>
+        <li><a href="#top">Start</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
         <li><a href="#examples">Projekte</a></li>
+
         <li><a href="#pricing">Preise</a></li>
         <li><a href="about.html">Über uns</a></li>
       </ul>
+
 
       <div class="nav-actions">
         <a class="btn btn-primary cta-main" href="javascript:void(0)" onclick="openBookingModal('Individuelle Erstberatung')" id="nav-cta">Kostenlose Erstberatung</a>
@@ -117,11 +132,15 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="#top">Start</a>
+    <a href="#leistungen">Leistungen</a>
     <a href="#examples">Projekte</a>
+
     <a href="#pricing">Preise</a>
     <a href="about.html">Über uns</a>
     <a class="btn btn-primary cta-main" href="javascript:void(0)" onclick="openBookingModal('Individuelle Erstberatung')" style="margin-top:24px;">Kostenlose Erstberatung</a>
   </div>
+
 
 
   <!-- ══════════════════════════════════════════════════════════
@@ -139,7 +158,8 @@
             <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" style="opacity:0.85">
               <path d="M6 0 L7.2 4.8 L12 6 L7.2 7.2 L6 12 L4.8 7.2 L0 6 L4.8 4.8 Z"/>
             </svg>
-            <span class="hero-badge-text">Premium Webdesign</span>
+            <span class="hero-badge-text">Für Restaurants · Handwerker · Lokale Läden</span>
+
           </div>
 
           <h1 class="hero-title reveal reveal-delay-1" id="hero-heading">
@@ -148,19 +168,38 @@
           </h1>
 
           <p class="hero-subtitle reveal reveal-delay-2">
-            Wir gestalten moderne, schnelle und hochkonvertierende Websites
-            für kleine Unternehmen — damit Ihre Online-Präsenz wirklich beeindruckt.
+            Mehr Kunden. In 7 Tagen. Garantiert ohne Agentur-Stress.
           </p>
 
+
+
+
           <div class="hero-actions reveal reveal-delay-3">
-            <a class="btn btn-primary cta-main" href="#contact" id="hero-cta-primary">
+            <a class="btn btn-primary cta-main" href="#pricing" id="hero-cta-primary">
               Kostenlose Erstberatung buchen &rarr;
             </a>
             <a class="btn btn-secondary" href="#examples" id="hero-cta-secondary">
               Referenzen ansehen
             </a>
           </div>
-          <p class="hero-cta-note reveal reveal-delay-4">Antwort innerhalb von 24 Stunden - unverbindlich und kostenlos.</p>
+
+          <div class="hero-trust-bar reveal reveal-delay-4">
+            <span class="trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px; color:var(--primary-light); vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>
+              10+ Projekte
+            </span>
+            <span class="trust-divider">·</span>
+            <span class="trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px; color:var(--primary-light); vertical-align:middle;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              Antwort in 24h
+            </span>
+            <span class="trust-divider">·</span>
+            <span class="trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px; color:var(--primary-light); vertical-align:middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              100% kostenlos & unverbindlich
+            </span>
+
+          </div>
         </div>
 
         <!-- Right: Floating UI Mockup -->
@@ -195,6 +234,8 @@
       </div>
     </div>
 
+
+
     <div class="scroll-indicator" aria-hidden="true">
       <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
         <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
@@ -211,7 +252,8 @@
   <!-- ══════════════════════════════════════════════════════════
        FEATURES — What We Do
        ══════════════════════════════════════════════════════════ -->
-  <section class="section features" id="features" aria-labelledby="features-heading">
+  <section class="section features" id="leistungen" aria-labelledby="features-heading">
+
     <div class="container">
 
       <div class="reveal" style="text-align:center; max-width:840px; margin:0 auto;">
@@ -225,8 +267,9 @@
           <span class="toggle-label-text autopilot-label" id="label-autopilot">MyWebsite</span>
         </div>
         <p class="section-subtitle" style="margin:24px auto;text-align:center;">
-          Vom manuellen Aufwand direkt zum automatisierten Erfolg — unser System spart Ihnen Zeit und Geld.
+          Speziell für kleine Betriebe — wir liefern, was große Agenturen versprechen, aber zum fairen Preis und ohne Umwege.
         </p>
+
       </div>
 
       <!-- Toggleable Solutions Display -->
@@ -303,7 +346,9 @@
       <div class="examples-header">
         <div class="reveal">
           <div class="section-label">Referenzen</div>
-          <h2 class="section-title" id="examples-heading">Unsere <span>Arbeit</span></h2>
+          <h2 class="section-title" id="examples-heading" style="margin-bottom:12px;">Unsere <span>Arbeit</span></h2>
+          <p class="section-subtitle" style="margin:0;">Websites für kleine Betriebe, die wirklich funktionieren.</p>
+
         </div>
         <a class="btn btn-secondary reveal reveal-delay-1" href="#pricing">
           Kostenlose Erstberatung &rarr;
@@ -378,6 +423,36 @@
 
     </div>
   </section>
+  
+  <!-- ══════════════════════════════════════════════════════════
+       SECOND CTA SECTION
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section cta-dark" id="cta-secondary">
+    <div class="container reveal">
+      <div class="cta-dark-content">
+        <h2 class="section-title">Bereit für Ihre <span>neue Website?</span></h2>
+        <p class="section-subtitle">Über 10 zufriedene Kunden. Jetzt kostenlos anfragen — unverbindlich und in 24h zurück.</p>
+        
+        <div class="cta-actions">
+          <a class="btn btn-primary cta-main" href="#pricing">Pakete & Preise entdecken &rarr;</a>
+        </div>
+
+        
+        <div class="cta-trust">
+          <span class="stars" style="display: flex; gap: 4px; justify-content: center; margin-bottom: 8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)" stroke="var(--primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)" stroke="var(--primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)" stroke="var(--primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)" stroke="var(--primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--primary-light)" stroke="var(--primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <span class="trust-text">10+ Projekte erfolgreich abgeschlossen</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 
 
   <!-- ══════════════════════════════════════════════════════════
@@ -447,8 +522,9 @@
       </div>
 
       <p class="pricing-note reveal" style="text-align: center; margin-top: 32px; color: var(--secondary); font-size: 0.9rem;">
-        20 % bei Auftragserteilung · 80 % bei Übergabe · Angebot gültig 14 Tage
+        Persönliche Betreuung · Kein Risiko · Ergebnis, das überzeugt
       </p>
+
     </div>
   </section>  <!-- ══════════════════════════════════════════════════════════
        BOOKING MODAL
@@ -457,38 +533,61 @@
     <div class="modal-content glass-card">
       <button class="modal-close" onclick="closeBookingModal()" aria-label="Schließen">&times;</button>
       
-      <div id="booking-form-container">
-        <div style="text-align: center; margin-bottom: 32px;">
-          <div class="section-label">Unverbindliche Anfrage</div>
-          <h2 class="section-title" id="modal-title-text" style="font-size: 2rem; margin-bottom: 8px;"><span>Paket</span> anfragen</h2>
-          <p style="font-size: 0.9rem; color: var(--secondary);">Lass uns gemeinsam dein Projekt zum Leben erwecken.</p>
-        </div>
+        <div id="booking-form-container">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div class="section-label">Unverbindliche Anfrage</div>
+            <h2 class="section-title" id="modal-title-text" style="font-size: 1.8rem; margin-bottom: 6px;"><span>Paket</span> anfragen</h2>
+            
+            <div class="modal-trust-bar">
+              <span class="trust-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px; color:var(--primary-light); vertical-align:middle;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                100% unverbindlich
+              </span>
+              <span class="trust-divider">·</span>
+              <span class="trust-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px; color:var(--primary-light); vertical-align:middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Antwort in 48h
 
-        <form id="booking-form">
-          <div class="form-group">
-            <label class="form-label" for="booking-email">E-Mail Adresse *</label>
-            <input type="email" id="booking-email" class="form-control" required placeholder="deine@mail.de">
+              </span>
+              <span class="trust-divider">·</span>
+              <span class="trust-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px; color:var(--primary-light); vertical-align:middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Persönlicher Berater
+              </span>
+            </div>
           </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="booking-desc">Was soll die Website zeigen? (Thema/Firma) *</label>
-            <textarea id="booking-desc" class="form-control" rows="4" required placeholder="Beschreib kurz dein Projekt oder deine Firma..."></textarea>
-          </div>
+
+          <form id="booking-form">
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label" for="booking-email" style="font-size: 0.85rem; margin-bottom: 6px; display: block;">E-Mail Adresse *</label>
+              <input type="email" id="booking-email" class="form-control" required placeholder="deine@mail.de">
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label class="form-label" for="booking-desc" style="font-size: 0.85rem; margin-bottom: 6px; display: block;">Projekt-Details *</label>
+              <textarea id="booking-desc" class="form-control" rows="3" required placeholder="Beschreib kurz dein Projekt..."></textarea>
+            </div>
+
 
           <div style="text-align: center; margin-top: 32px;">
             <button type="submit" class="btn btn-primary" id="booking-submit-btn" style="width: 100%; padding: 18px; font-size: 1.1rem;">
               Unverbindliche Anfrage absenden
             </button>
             <p style="font-size: 0.8rem; color: var(--secondary); margin-top: 12px;">
-              Kostenlose Erstberatung – wir melden uns bei dir.
+              Kostenlose Erstberatung – Antwort innerhalb von 48 Stunden.
             </p>
+
           </div>
         </form>
         
         <div id="booking-success" style="display: none; text-align: center; padding: 20px 0;">
-          <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+          <div style="width: 80px; height: 80px; background: var(--grad-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 10px 30px rgba(123,77,255,0.4);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
           <h3 style="font-size: 2.2rem; margin-bottom: 12px;">Danke!</h3>
-          <p style="color: var(--secondary); font-size: 1.1rem; line-height: 1.6;">Deine Anfrage ist bei uns eingegangen.<br>Wir melden uns in Kürze bei dir.</p>
+
+          <p style="color: var(--secondary); font-size: 1.1rem; line-height: 1.6;">Deine Anfrage ist bei uns eingegangen.<br>Wir melden uns innerhalb von 48 Stunden bei dir.</p>
+
           <button class="btn btn-secondary" style="margin-top: 32px; width: 100%;" onclick="closeBookingModal()">Fenster schließen</button>
         </div>
       </div>
@@ -569,21 +668,50 @@
   <!-- ══════════════════════════════════════════════════════════
        FOOTER
        ══════════════════════════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-logo" style="margin-bottom: 8px; opacity: 0.9;">My<span>Website</span></div>
-        <p class="footer-center" style="margin-bottom: 12px;">&copy; 2026 MyWebsite. Alle Rechte vorbehalten.</p>
-        <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: center;">
-          <a class="footer-email" href="mailto:mywebsite.info@web.de" aria-label="E-Mail senden">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-col brand">
+          <a href="#" class="footer-logo">My<span>Website</span></a>
+          <p class="footer-claim">Professionelles Webdesign für lokale Unternehmen.</p>
+          <a href="mailto:mywebsite.info@web.de" class="footer-email-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
             </svg>
             mywebsite.info@web.de
           </a>
-          <a href="#pricing" class="footer-legal-link">Preise</a>
-          <a href="impressum.html" class="footer-legal-link">Impressum & Datenschutz</a>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col nav">
+          <h4 class="footer-title">Seiten</h4>
+          <ul class="footer-links">
+            <li><a href="#examples">Projekte</a></li>
+            <li><a href="#pricing">Preise</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="impressum.html">Impressum & Datenschutz</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact / CTA -->
+        <div class="footer-col contact">
+          <h4 class="footer-title">Starten?</h4>
+          <p class="footer-text">Kostenlose Erstberatung buchen.</p>
+          <a href="#pricing" class="btn btn-primary">Preise ansehen</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2026 MyWebsite. Alle Rechte vorbehalten.
+        </div>
+        <div class="footer-legal">
+          <a href="impressum.html">Impressum & Datenschutz</a>
         </div>
       </div>
     </div>

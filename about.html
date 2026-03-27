@@ -12,8 +12,14 @@
 
   <!-- Stylesheet (Same as main site) -->
   <link rel="stylesheet" href="css/style.css?v=2.0" />
+  <style>
+    .section { padding: 100px 0 !important; }
+    .about-visual-box { min-height: 480px !important; }
+  </style>
 </head>
-<body class="subpage about-page">
+
+<body class="subpage about-page" id="top">
+
 
   <!-- ── Ambient Background (Liquid Aurora) ────────────────── -->
   <div class="ambient-layer" aria-hidden="true">
@@ -28,16 +34,22 @@
        ══════════════════════════════════════════════════════════ -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a class="nav-logo" href="index.html">
+      <a class="nav-logo" href="index.html#top" aria-label="MyWebsite – Startseite">
         My<span>Website</span>
       </a>
 
+
       <ul class="nav-links" role="list">
         <div class="nav-indicator" id="navIndicator"></div>
+        <li><a href="index.html#top">Start</a></li>
+        <li><a href="index.html#leistungen">Leistungen</a></li>
         <li><a href="index.html#examples">Projekte</a></li>
+
         <li><a href="index.html#pricing">Preise</a></li>
-        <li><a href="about.html" style="color:var(--primary-light)">Über uns</a></li>
+        <li><a href="about.html" class="active">Über uns</a></li>
+
       </ul>
+
 
       <div class="nav-actions">
         <a class="btn btn-primary" href="index.html#pricing">Starten</a>
@@ -47,6 +59,19 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html#top">Start</a>
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="index.html#examples">Projekte</a>
+
+    <a href="index.html#pricing">Preise</a>
+    <a href="about.html" class="active">Über uns</a>
+
+    <a class="btn btn-primary" href="index.html#pricing" style="margin-top:24px;">Starten</a>
+  </div>
+
 
   <!-- ══════════════════════════════════════════════════════════
        ABOUT HERO
@@ -101,44 +126,156 @@
         </div>
       </div>
 
-      <!-- Mission Section -->
-      <div style="text-align: center; margin-bottom: 120px;" class="reveal reveal-delay-3">
-        <div style="width: 72px; height: 72px; background: var(--glass-bg); border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; margin: 0 auto 32px; color: var(--primary-light); box-shadow: var(--shadow), var(--glass-glow);">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION: WARUM WIR?
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+        <div class="section-label">Warum MyWebsite</div>
+        <h2 class="section-title">Nicht irgendeine <span>Agentur.</span></h2>
+      </div>
+
+      <div class="why-us-grid reveal">
+        <div class="glass-card why-card">
+          <div class="why-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="why-card-title">Persönlich</h3>
+          <p class="why-card-text">Kein Ticket-System, kein anonymes Team — du sprichst direkt mit uns.</p>
         </div>
-        <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 24px;">Unsere <span class="purple">Mission</span></h2>
-        <p style="font-size: 1.2rem; color: var(--secondary); max-width: 700px; margin: 0 auto; line-height: 1.8;">
-          Websites zu bauen, die nicht nur schön aussehen – sondern Ihr Geschäft <strong>aktiv voranbringen</strong> und echte Ergebnisse liefern.
-        </p>
+        <div class="glass-card why-card">
+          <div class="why-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="why-card-title">Schnell</h3>
+          <p class="why-card-text">Von der Anfrage bis zur fertigen Website in 7 Tagen. Garantiert.</p>
+        </div>
+        <div class="glass-card why-card">
+          <div class="why-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="why-card-title">Fair</h3>
+          <p class="why-card-text">Transparente Festpreise. Keine versteckten Kosten, keine bösen Überraschungen.</p>
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════════
+       SECTION: FAQ
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+        <div class="section-label">Häufig gestellte Fragen</div>
+        <h2 class="section-title">Haben Sie <span>Fragen?</span></h2>
+      </div>
+
+      <div class="faq-grid reveal">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>Was kostet eine Website bei euch?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer">
+            Unsere Pakete starten ab 179 €. Alle Preise findest du transparent auf unserer Hauptseite — keine Extras, keine Überraschungen.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Wie lange dauert die Umsetzung?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer">
+            In der Regel 5–7 Werktage nach finalem Briefing. Bei komplexeren Projekten kommunizieren wir den Zeitplan vorab klar.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Was brauche ich, um loszulegen?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer">
+            Nur deine Idee und ein paar Infos zu deinem Betrieb. Wir führen dich durch alles Weitere im kostenlosen Erstgespräch.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Kann ich die Website danach selbst bearbeiten?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer">
+            Ja — wir bauen auf einfache Systeme, die du ohne Vorkenntnisse pflegen kannst. Alternativ übernehmen wir das für dich.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Was passiert nach der Übergabe?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer">
+            Je nach Paket erhältst du 30 oder 90 Tage Support. Danach bieten wir flexible Wartungspakete an.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
        FOOTER
        ══════════════════════════════════════════════════════════ -->
-  <footer class="footer">
+  <footer class="footer" id="footer" role="contentinfo">
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-logo" style="margin-bottom: 8px; opacity: 0.9;">My<span>Website</span></div>
-        <p class="footer-center" style="margin-bottom: 12px;">&copy; 2026 MyWebsite. Alle Rechte vorbehalten.</p>
-        <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: center;">
-          <a class="footer-email" href="mailto:mywebsite.info@web.de" aria-label="E-Mail senden">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-col brand">
+          <a href="#" class="footer-logo">My<span>Website</span></a>
+          <p class="footer-claim">Professionelles Webdesign für lokale Unternehmen.</p>
+          <a href="mailto:mywebsite.info@web.de" class="footer-email-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
             </svg>
             mywebsite.info@web.de
           </a>
-          <a href="index.html#pricing" class="footer-legal-link">Preise</a>
-          <a href="impressum.html" class="footer-legal-link">Impressum & Datenschutz</a>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col nav">
+          <h4 class="footer-title">Seiten</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#examples">Projekte</a></li>
+            <li><a href="index.html#pricing">Preise</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="impressum.html">Impressum & Datenschutz</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact / CTA -->
+        <div class="footer-col contact">
+          <h4 class="footer-title">Starten?</h4>
+          <p class="footer-text">Kostenlose Erstberatung buchen.</p>
+          <a href="javascript:void(0)" onclick="openBookingModal('Footer')" class="btn btn-primary">Anfrage senden</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2026 MyWebsite. Alle Rechte vorbehalten.
+        </div>
+        <div class="footer-legal">
+          <a href="impressum.html">Impressum & Datenschutz</a>
         </div>
       </div>
     </div>
   </footer>
+
 
   <script src="js/main.js?v=2.0"></script>
 </body>

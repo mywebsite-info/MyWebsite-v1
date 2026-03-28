@@ -3,12 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MyWebsite – Professionelles Webdesign für kleine Unternehmen. Moderne, schnelle und hochkonvertierende Websites zum fairen Preis." />
-  <meta name="keywords" content="Webdesign, Website erstellen, moderne Website, kleine Unternehmen, günstiges Webdesign" />
-  <meta property="og:title" content="MyWebsite — Professionelles Webdesign" />
-  <meta property="og:description" content="Wir bauen die Zukunft Ihres Unternehmens. Moderne, schnelle Websites für kleine Unternehmen." />
+  <title>Webdesign Leipzig | Moderne Websites für kleine Unternehmen – MyWebsite</title>
+  <meta name="description" content="Professionelles Webdesign in Leipzig – moderne, schnelle Websites ab 179 €. Jetzt kostenlose Erstberatung buchen." />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mywebsite-info.netlify.app/">
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <title>MyWebsite — Professionelles Webdesign</title>
+  <meta property="og:url" content="https://mywebsite-info.netlify.app/" />
+  <meta property="og:title" content="Webdesign Leipzig | Moderne Websites für kleine Unternehmen – MyWebsite" />
+  <meta property="og:description" content="Professionelles Webdesign in Leipzig – moderne, schnelle Websites ab 179 €. Jetzt kostenlose Erstberatung buchen." />
+  <meta property="og:image" content="https://mywebsite-info.netlify.app/og-image.jpg" />
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="MyWebsite">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mywebsite-info.netlify.app/">
+  <meta name="twitter:title" content="Webdesign Leipzig | Moderne Websites für kleine Unternehmen – MyWebsite">
+  <meta name="twitter:description" content="Professionelles Webdesign in Leipzig – moderne, schnelle Websites ab 179 €. Jetzt kostenlose Erstberatung buchen.">
+  <meta name="twitter:image" content="https://mywebsite-info.netlify.app/og-image.jpg">
+
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -85,7 +100,40 @@
       emailjs.init("9v2FZK6LlCr9enTsl"); 
     })();
   </script>
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "name": "MyWebsite",
+    "description": "Professionelles Webdesign für kleine Unternehmen in Leipzig. Moderne, schnelle und mobiloptimierte Websites ab 179 €.",
+    "url": "https://mywebsite-info.netlify.app/",
+    "email": "mywebsite.info@web.de",
+    "areaServed": {
+      "@type": "City",
+      "name": "Leipzig"
+    },
+    "serviceType": ["Webdesign", "Website-Erstellung", "SEO-Optimierung", "Webentwicklung"],
+    "priceRange": "€€",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Webdesign-Pakete",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Starter", "price": "179", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Business", "price": "349", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Premium", "price": "649", "priceCurrency": "EUR"}
+      ]
+    }
+  }
+  </script>
 </head>
+
 <body class="home-page" id="top">
 
 
@@ -163,13 +211,14 @@
           </div>
 
           <h1 class="hero-title reveal reveal-delay-1" id="hero-heading">
-            Ihre Website.<br>
-            <span class="purple">Ihr Erfolg.</span>
+            Webdesign Leipzig —<br>
+            <span class="purple">Ihre Website. Ihr Erfolg.</span>
           </h1>
 
           <p class="hero-subtitle reveal reveal-delay-2">
-            Mehr Kunden. In 7 Tagen. Garantiert ohne Agentur-Stress.
+            Wir gestalten moderne, schnelle und hochkonvertierende Websites für kleine Unternehmen in Leipzig und der DACH-Region — damit Ihre Online-Präsenz wirklich beeindruckt.
           </p>
+
 
 
 
@@ -358,66 +407,89 @@
       <div class="gallery-container reveal reveal-delay-2">
         <div class="gallery-marquee">
           <!-- Slide 1 -->
-          <div class="gallery-card">
-            <div class="gallery-card-img card-placeholder-1"></div>
+          <div class="gallery-card" aria-label="Webdesign Referenz: Restaurant-Website Casa Aurora – MyWebsite Leipzig">
+            <div class="gallery-card-img">
+              <img src="img/restaurant.webp" alt="Casa Aurora Website" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="gallery-card-overlay">
               <div class="gallery-card-tag">Restaurant</div>
-              <h3 class="gallery-card-title">Gourmet Haven</h3>
+              <h3 class="gallery-card-title">Casa Aurora</h3>
             </div>
           </div>
+
+
           <!-- Slide 2 -->
-          <div class="gallery-card">
-            <div class="gallery-card-img card-placeholder-2"></div>
+          <div class="gallery-card" aria-label="Webdesign Referenz: Elektro-Technik Website VoltEdge – MyWebsite Leipzig">
+            <div class="gallery-card-img">
+              <img src="img/industry.webp" alt="VoltEdge Website" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">E-Commerce</div>
-              <h3 class="gallery-card-title">Urban Thread</h3>
+              <div class="gallery-card-tag">Elektro-Technik</div>
+              <h3 class="gallery-card-title">VoltEdge</h3>
             </div>
           </div>
+
+
           <!-- Slide 3 -->
-          <div class="gallery-card">
-            <div class="gallery-card-img card-placeholder-3"></div>
+          <div class="gallery-card" aria-label="Webdesign Referenz: Taxi-Service Website CityDrive – MyWebsite Leipzig">
+            <div class="gallery-card-img">
+              <img src="img/taxi.webp" alt="CityDrive Website" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Agency</div>
-              <h3 class="gallery-card-title">Nexus Media</h3>
+              <div class="gallery-card-tag">Taxi-Service</div>
+              <h3 class="gallery-card-title">CityDrive</h3>
             </div>
           </div>
+
+
           <!-- Slide 4 -->
-          <div class="gallery-card">
+          <div class="gallery-card" aria-label="Webdesign Referenz: Portfolio-Website Alpha Studio – MyWebsite Leipzig">
             <div class="gallery-card-img card-placeholder-4"></div>
             <div class="gallery-card-overlay">
               <div class="gallery-card-tag">Portfolio</div>
               <h3 class="gallery-card-title">Alpha Studio</h3>
             </div>
           </div>
+
           <!-- Repeat for smooth loop -->
-          <div class="gallery-card">
-            <div class="gallery-card-img card-placeholder-1"></div>
+          <div class="gallery-card" aria-label="Webdesign Referenz: Restaurant-Website Casa Aurora – MyWebsite Leipzig">
+            <div class="gallery-card-img">
+              <img src="img/restaurant.webp" alt="Casa Aurora Website" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="gallery-card-overlay">
               <div class="gallery-card-tag">Restaurant</div>
-              <h3 class="gallery-card-title">Gourmet Haven</h3>
+              <h3 class="gallery-card-title">Casa Aurora</h3>
             </div>
           </div>
-          <div class="gallery-card">
-            <div class="gallery-card-img card-placeholder-2"></div>
+
+          <div class="gallery-card" aria-label="Webdesign Referenz: Elektro-Technik Website VoltEdge – MyWebsite Leipzig">
+            <div class="gallery-card-img">
+              <img src="img/industry.webp" alt="VoltEdge Website" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">E-Commerce</div>
-              <h3 class="gallery-card-title">Urban Thread</h3>
+              <div class="gallery-card-tag">Elektro-Technik</div>
+              <h3 class="gallery-card-title">VoltEdge</h3>
             </div>
           </div>
-          <div class="gallery-card">
-            <div class="gallery-card-img card-placeholder-3"></div>
+
+          <div class="gallery-card" aria-label="Webdesign Referenz: Taxi-Service Website CityDrive – MyWebsite Leipzig">
+            <div class="gallery-card-img">
+              <img src="img/taxi.webp" alt="CityDrive Website" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Agency</div>
-              <h3 class="gallery-card-title">Nexus Media</h3>
+              <div class="gallery-card-tag">Taxi-Service</div>
+              <h3 class="gallery-card-title">CityDrive</h3>
             </div>
           </div>
-          <div class="gallery-card">
+
+          <div class="gallery-card" aria-label="Webdesign Referenz: Portfolio-Website Alpha Studio – MyWebsite Leipzig">
             <div class="gallery-card-img card-placeholder-4"></div>
             <div class="gallery-card-overlay">
               <div class="gallery-card-tag">Portfolio</div>
               <h3 class="gallery-card-title">Alpha Studio</h3>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -710,10 +782,12 @@
         <div class="footer-copyright">
           &copy; 2026 MyWebsite. Alle Rechte vorbehalten.
         </div>
+        <p style="font-size: 0.8rem; color: var(--secondary); margin-bottom: 12px;">MyWebsite – Ihr Partner für professionelles Webdesign in Leipzig. Websites für Restaurants, Handwerker und lokale Unternehmen.</p>
         <div class="footer-legal">
           <a href="impressum.html">Impressum & Datenschutz</a>
         </div>
       </div>
+
     </div>
   </footer>
 

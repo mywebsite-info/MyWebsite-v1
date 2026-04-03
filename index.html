@@ -20,7 +20,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://mywebsite-info.netlify.app/">
-  <meta name="twitter:title" content="Webdesign Leipzig | Moderne Websites für kleine Unternehmen – MyWebsite">
+  <meta name="twitter:title" content="Webdesign Leipzig | MyWebsite">
   <meta name="twitter:description" content="Professionelles Webdesign in Leipzig – moderne, schnelle Websites ab 179 €. Jetzt kostenlose Erstberatung buchen.">
   <meta name="twitter:image" content="https://mywebsite-info.netlify.app/og-image.jpg">
 
@@ -170,7 +170,7 @@
 
 
       <div class="nav-actions">
-        <a class="btn btn-primary cta-main" href="javascript:void(0)" onclick="openBookingModal('Individuelle Erstberatung')" id="nav-cta">Kostenlose Erstberatung</a>
+        <a class="btn btn-primary cta-main" href="javascript:void(0)" data-modal="beratung" onclick="openBookingModal(null, 'beratung')" id="nav-cta">Kostenlose Erstberatung</a>
         <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -186,7 +186,7 @@
 
     <a href="#pricing">Preise</a>
     <a href="about.html">Über uns</a>
-    <a class="btn btn-primary cta-main" href="javascript:void(0)" onclick="openBookingModal('Individuelle Erstberatung')" style="margin-top:24px;">Kostenlose Erstberatung</a>
+    <a class="btn btn-primary cta-main" href="javascript:void(0)" data-modal="beratung" onclick="openBookingModal(null, 'beratung')" style="margin-top:24px;">Kostenlose Erstberatung</a>
   </div>
 
 
@@ -211,8 +211,7 @@
           </div>
 
           <h1 class="hero-title reveal reveal-delay-1" id="hero-heading">
-            Webdesign Leipzig —<br>
-            <span class="purple">Ihre Website. Ihr Erfolg.</span>
+            Ihre Website.<br><span class="purple">Ihr Erfolg.</span>
           </h1>
 
           <p class="hero-subtitle reveal reveal-delay-2">
@@ -316,7 +315,7 @@
           <span class="toggle-label-text autopilot-label" id="label-autopilot">MyWebsite</span>
         </div>
         <p class="section-subtitle" style="margin:24px auto;text-align:center;">
-          Speziell für kleine Betriebe — wir liefern, was große Agenturen versprechen, aber zum fairen Preis und ohne Umwege.
+          Große Agenturen verlangen Tausende und liefern Vorlagen. Wir bauen Ihre Website persönlich — schnell, fair und ohne Umwege.
         </p>
 
       </div>
@@ -329,26 +328,26 @@
           <div class="glass-card solution-item">
             <div class="solution-status status-pending">Wartezeit</div>
             <div class="solution-info">
-              <h4 class="solution-item-title">Wochenlange Entwicklung</h4>
-              <p class="solution-item-desc">Mühsame manuelle Abstimmungen und lange Wartezeiten, bis Ihre Seite endlich online ist.</p>
+              <h4 class="solution-item-title">Wochen warten, Kunden verlieren</h4>
+              <p class="solution-item-desc">Sie zahlen eine Anzahlung, warten 6–8 Wochen — und Ihre Konkurrenz sammelt online bereits die Kunden ein.</p>
             </div>
-            <div class="solution-tag">Mühsam</div>
+            <div class="solution-tag">Frustrierend</div>
           </div>
           <div class="glass-card solution-item">
             <div class="solution-status status-pending">Design</div>
             <div class="solution-info">
-              <h4 class="solution-item-title">Standard-Konzepte</h4>
-              <p class="solution-item-desc">Verwendung von Vorlagen, die nach "von der Stange" aussehen und Ihre Marke nicht hervorheben.</p>
+              <h4 class="solution-item-title">Template-Look für Premium-Preis</h4>
+              <p class="solution-item-desc">Sie bekommen eine Vorlage mit Ihrem Logo drauf. Sieht aus wie jede dritte Website in Leipzig — nur teurer.</p>
             </div>
-            <div class="solution-tag">Standard</div>
+            <div class="solution-tag">Austauschbar</div>
           </div>
           <div class="glass-card solution-item">
             <div class="solution-status status-pending">Technik</div>
             <div class="solution-info">
-              <h4 class="solution-item-title">Fehlende Optimierung</h4>
-              <p class="solution-item-desc">Veraltete Methoden, die weder SEO-freundlich noch schnell sind — Ihre Kunden warten zu lange.</p>
+              <h4 class="solution-item-title">Langsam, unsichtbar, veraltet</h4>
+              <p class="solution-item-desc">Die Seite lädt ewig, Google findet Sie nicht — und auf dem Handy sieht alles kaputt aus. Kunden springen ab.</p>
             </div>
-            <div class="solution-tag">Langsam</div>
+            <div class="solution-tag">Unsichtbar</div>
           </div>
         </div>
 
@@ -357,26 +356,26 @@
           <div class="glass-card solution-item highlight">
             <div class="solution-status status-complete">Fertig</div>
             <div class="solution-info">
-              <h4 class="solution-item-title">Live in Rekordzeit</h4>
-              <p class="solution-item-desc">Ihr Business geht innerhalb weniger Tage online — keine langen Prozesse, volle Power.</p>
+              <h4 class="solution-item-title">Online in 5–7 Tagen</h4>
+              <p class="solution-item-desc">Vom ersten Gespräch bis zur fertigen Website — in einer Woche. Kein Hin-und-Her, kein Warten.</p>
             </div>
-            <div class="solution-tag tag-success">Schnell</div>
+            <div class="solution-tag tag-success">7 Tage</div>
           </div>
           <div class="glass-card solution-item highlight">
             <div class="solution-status status-complete">Optimal</div>
             <div class="solution-info">
-              <h4 class="solution-item-title">Premium Design</h4>
-              <p class="solution-item-desc">Einzigartige Ästhetik, die exakt auf Ihre Zielgruppe zugeschnitten ist und sofort vertrauen weckt.</p>
+              <h4 class="solution-item-title">Design, das Kunden bringt</h4>
+              <p class="solution-item-desc">Kein Template — Ihre Website wird individuell gestaltet, passend zu Ihrer Branche und Ihren Kunden vor Ort.</p>
             </div>
-            <div class="solution-tag tag-success">Premium</div>
+            <div class="solution-tag tag-success">Individuell</div>
           </div>
           <div class="glass-card solution-item highlight">
             <div class="solution-status status-complete">Perfekt</div>
             <div class="solution-info">
-              <h4 class="solution-item-title">Top Technik</h4>
-              <p class="solution-item-desc">Blitzschnelles Laden, Top-SEO Ranking und perfekte Darstellung auf allen Geräten.</p>
+              <h4 class="solution-item-title">Schnell, sichtbar, mobil-perfekt</h4>
+              <p class="solution-item-desc">Unter 2 Sekunden Ladezeit, SEO-optimiert für „Ihr Gewerbe + Leipzig" und perfekt auf jedem Smartphone.</p>
             </div>
-            <div class="solution-tag tag-success">Modern</div>
+            <div class="solution-tag tag-success">Sichtbar</div>
           </div>
         </div>
 
@@ -411,43 +410,19 @@
             <div class="gallery-card-img">
               <img src="img/restaurant.webp" alt="Casa Aurora Website" style="width:100%; height:100%; object-fit:cover;">
             </div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Restaurant</div>
-              <h3 class="gallery-card-title">Casa Aurora</h3>
-            </div>
           </div>
-
 
           <!-- Slide 2 -->
           <div class="gallery-card" aria-label="Webdesign Referenz: Elektro-Technik Website VoltEdge – MyWebsite Leipzig">
             <div class="gallery-card-img">
               <img src="img/industry.webp" alt="VoltEdge Website" style="width:100%; height:100%; object-fit:cover;">
             </div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Elektro-Technik</div>
-              <h3 class="gallery-card-title">VoltEdge</h3>
-            </div>
           </div>
-
 
           <!-- Slide 3 -->
           <div class="gallery-card" aria-label="Webdesign Referenz: Taxi-Service Website CityDrive – MyWebsite Leipzig">
             <div class="gallery-card-img">
               <img src="img/taxi.webp" alt="CityDrive Website" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Taxi-Service</div>
-              <h3 class="gallery-card-title">CityDrive</h3>
-            </div>
-          </div>
-
-
-          <!-- Slide 4 -->
-          <div class="gallery-card" aria-label="Webdesign Referenz: Portfolio-Website Alpha Studio – MyWebsite Leipzig">
-            <div class="gallery-card-img card-placeholder-4"></div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Portfolio</div>
-              <h3 class="gallery-card-title">Alpha Studio</h3>
             </div>
           </div>
 
@@ -456,37 +431,17 @@
             <div class="gallery-card-img">
               <img src="img/restaurant.webp" alt="Casa Aurora Website" style="width:100%; height:100%; object-fit:cover;">
             </div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Restaurant</div>
-              <h3 class="gallery-card-title">Casa Aurora</h3>
-            </div>
           </div>
 
           <div class="gallery-card" aria-label="Webdesign Referenz: Elektro-Technik Website VoltEdge – MyWebsite Leipzig">
             <div class="gallery-card-img">
               <img src="img/industry.webp" alt="VoltEdge Website" style="width:100%; height:100%; object-fit:cover;">
             </div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Elektro-Technik</div>
-              <h3 class="gallery-card-title">VoltEdge</h3>
-            </div>
           </div>
 
           <div class="gallery-card" aria-label="Webdesign Referenz: Taxi-Service Website CityDrive – MyWebsite Leipzig">
             <div class="gallery-card-img">
               <img src="img/taxi.webp" alt="CityDrive Website" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Taxi-Service</div>
-              <h3 class="gallery-card-title">CityDrive</h3>
-            </div>
-          </div>
-
-          <div class="gallery-card" aria-label="Webdesign Referenz: Portfolio-Website Alpha Studio – MyWebsite Leipzig">
-            <div class="gallery-card-img card-placeholder-4"></div>
-            <div class="gallery-card-overlay">
-              <div class="gallery-card-tag">Portfolio</div>
-              <h3 class="gallery-card-title">Alpha Studio</h3>
             </div>
           </div>
 
@@ -553,7 +508,7 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>2 Korrekturschleifen</li>
           </ul>
           <div class="pricing-card-actions">
-            <a class="btn btn-secondary" href="javascript:void(0)" onclick="openBookingModal('Starter')">Jetzt buchen</a>
+            <a class="btn btn-secondary" href="javascript:void(0)" data-modal="paket" onclick="openBookingModal('Starter', 'paket')">Jetzt buchen</a>
           </div>
         </article>
 
@@ -571,7 +526,7 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>30 Tage Support</li>
           </ul>
           <div class="pricing-card-actions">
-            <a class="btn btn-primary" href="javascript:void(0)" onclick="openBookingModal('Business')">Jetzt buchen</a>
+            <a class="btn btn-primary" href="javascript:void(0)" data-modal="paket" onclick="openBookingModal('Business', 'paket')">Jetzt buchen</a>
           </div>
         </article>
 
@@ -588,7 +543,7 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>90 Tage Priority-Support</li>
           </ul>
           <div class="pricing-card-actions">
-            <a class="btn btn-secondary" href="javascript:void(0)" onclick="openBookingModal('Premium')">Jetzt buchen</a>
+            <a class="btn btn-secondary" href="javascript:void(0)" data-modal="paket" onclick="openBookingModal('Premium', 'paket')">Jetzt buchen</a>
           </div>
         </article>
       </div>
@@ -608,7 +563,7 @@
         <div id="booking-form-container">
           <div style="text-align: center; margin-bottom: 24px;">
             <div class="section-label">Unverbindliche Anfrage</div>
-            <h2 class="section-title" id="modal-title-text" style="font-size: 1.8rem; margin-bottom: 6px;"><span>Paket</span> anfragen</h2>
+            <h2 class="section-title" id="modal-title-text" style="font-size: 1.8rem; margin-bottom: 6px;"><span>Unverbindliches</span> Beratungsgespräch</h2>
             
             <div class="modal-trust-bar">
               <span class="trust-item">
@@ -667,16 +622,23 @@
   </div>
 
   <script>
-    function openBookingModal(pkg) {
+    function openBookingModal(pkg, mode) {
       const modal = document.getElementById('bookingModal');
       const title = document.getElementById('modal-title-text');
-      const pkgName = pkg || sessionStorage.getItem('gewaehltesPaket') || 'Individuelles';
-      
-      sessionStorage.setItem('gewaehltesPaket', pkgName);
-      title.innerHTML = `<span>${pkgName}</span>-Paket anfragen`;
-      
+
+      if (mode === 'beratung') {
+        // Beratungsmodus: kein Paket, generische Überschrift
+        sessionStorage.setItem('gewaehltesPaket', 'Erstberatung');
+        title.innerHTML = `<span>Unverbindliches</span> Beratungsgespräch`;
+      } else {
+        // Paketmodus: Paketname anzeigen
+        const pkgName = pkg || sessionStorage.getItem('gewaehltesPaket') || 'Individuelles';
+        sessionStorage.setItem('gewaehltesPaket', pkgName);
+        title.innerHTML = `<span>${pkgName}</span>-Paket anfragen`;
+      }
+
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scroll
+      document.body.style.overflow = 'hidden';
     }
 
     function closeBookingModal() {

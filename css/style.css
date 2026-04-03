@@ -1933,10 +1933,10 @@ textarea.form-control {
   flex-shrink: 0;
   border-radius: 8px;
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(192, 132, 255, 0.2);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  box-shadow: var(--shadow), var(--glass-glow);
+  box-shadow: 0 0 15px rgba(192, 132, 255, 0.08), 0 0 30px rgba(124, 77, 255, 0.05), var(--shadow);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -1947,8 +1947,8 @@ textarea.form-control {
 
 .gallery-card:hover {
   transform: translateY(-10px) scale(1.02);
-  border-color: var(--primary-light);
-  box-shadow: 0 20px 60px rgba(124,77,255,0.25);
+  border-color: rgba(192, 132, 255, 0.45);
+  box-shadow: 0 0 20px rgba(192, 132, 255, 0.15), 0 0 50px rgba(124, 77, 255, 0.1), 0 20px 60px rgba(124,77,255,0.25);
 }
 
 .gallery-card-img {
